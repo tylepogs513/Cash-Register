@@ -32,8 +32,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.receipt = new System.Windows.Forms.Label();
+            this.receiptName = new System.Windows.Forms.Label();
             this.order = new System.Windows.Forms.Button();
-            this.printButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -42,6 +42,8 @@
             this.burgerCounter = new System.Windows.Forms.TextBox();
             this.drinkCounter = new System.Windows.Forms.TextBox();
             this.fryCounter = new System.Windows.Forms.TextBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.print = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -52,7 +54,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(-4, -1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(521, 51);
+            this.panel1.Size = new System.Drawing.Size(458, 51);
             this.panel1.TabIndex = 0;
             // 
             // label1
@@ -70,6 +72,7 @@
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Controls.Add(this.receipt);
+            this.panel2.Controls.Add(this.receiptName);
             this.panel2.Location = new System.Drawing.Point(206, 67);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(235, 307);
@@ -78,10 +81,21 @@
             // receipt
             // 
             this.receipt.AutoSize = true;
-            this.receipt.Location = new System.Drawing.Point(12, 32);
+            this.receipt.Location = new System.Drawing.Point(24, 55);
             this.receipt.Name = "receipt";
-            this.receipt.Size = new System.Drawing.Size(0, 13);
-            this.receipt.TabIndex = 0;
+            this.receipt.Size = new System.Drawing.Size(73, 13);
+            this.receipt.TabIndex = 1;
+            this.receipt.Text = "Order Number";
+            // 
+            // receiptName
+            // 
+            this.receiptName.AutoSize = true;
+            this.receiptName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.receiptName.Location = new System.Drawing.Point(44, 12);
+            this.receiptName.Name = "receiptName";
+            this.receiptName.Size = new System.Drawing.Size(145, 20);
+            this.receiptName.TabIndex = 0;
+            this.receiptName.Text = "Burger Town Inc.";
             // 
             // order
             // 
@@ -92,16 +106,7 @@
             this.order.TabIndex = 0;
             this.order.Text = "New Order";
             this.order.UseVisualStyleBackColor = true;
-            // 
-            // printButton
-            // 
-            this.printButton.Location = new System.Drawing.Point(12, 393);
-            this.printButton.Name = "printButton";
-            this.printButton.Size = new System.Drawing.Size(178, 23);
-            this.printButton.TabIndex = 2;
-            this.printButton.Text = "Print Receipt";
-            this.printButton.UseVisualStyleBackColor = true;
-            this.printButton.Click += new System.EventHandler(this.button2_Click);
+            this.order.Click += new System.EventHandler(this.order_Click);
             // 
             // label2
             // 
@@ -172,12 +177,32 @@
             this.fryCounter.Size = new System.Drawing.Size(38, 20);
             this.fryCounter.TabIndex = 11;
             // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.Black;
+            this.panel3.Location = new System.Drawing.Point(18, 283);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(146, 16);
+            this.panel3.TabIndex = 2;
+            // 
+            // print
+            // 
+            this.print.Location = new System.Drawing.Point(18, 392);
+            this.print.Name = "print";
+            this.print.Size = new System.Drawing.Size(145, 22);
+            this.print.TabIndex = 12;
+            this.print.Text = "Print Receipt";
+            this.print.UseVisualStyleBackColor = true;
+            this.print.Click += new System.EventHandler(this.print_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(451, 429);
+            this.Controls.Add(this.print);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.fryCounter);
             this.Controls.Add(this.drinkCounter);
             this.Controls.Add(this.burgerCounter);
@@ -186,13 +211,13 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.printButton);
             this.Controls.Add(this.order);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.order_Click);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -207,9 +232,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label receipt;
+        private System.Windows.Forms.Label receiptName;
         private System.Windows.Forms.Button order;
-        private System.Windows.Forms.Button printButton;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -218,6 +242,9 @@
         private System.Windows.Forms.TextBox burgerCounter;
         private System.Windows.Forms.TextBox drinkCounter;
         private System.Windows.Forms.TextBox fryCounter;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button print;
+        private System.Windows.Forms.Label receipt;
     }
 }
 

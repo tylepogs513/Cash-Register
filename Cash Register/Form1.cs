@@ -12,6 +12,8 @@ namespace Cash_Register
 {
     public partial class Form1 : Form
     {
+        double zero;
+
         public Form1()
         {
             InitializeComponent();
@@ -19,27 +21,48 @@ namespace Cash_Register
 
         private void calculateButton_Click(object sender, EventArgs e)
         {
-            /*double numberOne, numberTwo, numberThree, numberFour, numberFive, numberSix;
-            numberOne = 2.49;
-            numberTwo = 1.89;
-            numberThree = 0.99;
-            numberFour = 0.13;
-            numberFive = * numberOne +  * numberTwo +  * numberThree;
-            numberSix = numberFour * numberFive; 
-            
-            subtotal.Text = "Sub Total          " + numberFive 
-                + "\n\nTax              " + numberSix
-                + "\n\nTotal            " + (numberFive + numberSix);*/
+
+            string burgerValue, fryValue, drinkValue, num, num1, num2;
+            burgerValue = burgerCounter.Text;
+            fryValue = fryCounter.Text;
+            drinkValue = drinkCounter.Text;
+
+            double numOne, numTwo, numThree, numFour, numFive, numSix, numSeven, 
+                numEight, numNine, numThirteen, numFourteen;
+            numOne = 2.49;
+            numTwo = 1.89;
+            numThree = 0.99;
+            numFour = 0.13;
+            numFive = 1.13;
+            numSix = Convert.ToDouble(burgerCounter.Text);
+            numSeven = Convert.ToDouble(fryCounter.Text);
+            numEight = Convert.ToDouble(drinkCounter.Text);
+            numNine = (numOne * numSix) + (numTwo * numSeven) + (numThree * numEight);
+            numThirteen = numNine * numFour;
+            num1 = numThirteen.ToString(".##");
+            numFourteen = numNine * numFive;
+            num2 = numFourteen.ToString(".##");
+
+            subtotal.Text = "SubTotal          $" + numNine 
+                + "\n\nTax                  $" + num1
+                + "\n\nTotal                $" + numFourteen;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void order_Click(object sender, EventArgs e)
         {
-            double orderNumber, orderNumber2;
-            orderNumber = 0;
-            orderNumber2 = orderNumber + 1;
+            double  numSeven;
+            numSeven = 0;
 
-            receipt.Text = "                   Burger Town Inc." +
-                "\n\nOrder Number" + ( + 1);
+            subtotal.Text = "SubTotal          $" + numSeven
+                + "\n\nTax                  $" + numSeven
+                + "\n\nTotal                $" + numSeven;
+
+            receipt.Text = "Order Number";
+        }
+
+        private void print_Click(object sender, EventArgs e)
+        {
+            receipt.Text = "Order Number";
         }
     }
 }
