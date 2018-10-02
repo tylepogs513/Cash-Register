@@ -44,6 +44,11 @@
             this.fryCounter = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.print = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tender = new System.Windows.Forms.TextBox();
+            this.changeButton = new System.Windows.Forms.Button();
+            this.change = new System.Windows.Forms.Label();
+            this.final = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -71,6 +76,7 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.final);
             this.panel2.Controls.Add(this.receipt);
             this.panel2.Controls.Add(this.receiptName);
             this.panel2.Location = new System.Drawing.Point(206, 67);
@@ -90,10 +96,10 @@
             // receiptName
             // 
             this.receiptName.AutoSize = true;
-            this.receiptName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.receiptName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.receiptName.Location = new System.Drawing.Point(44, 12);
             this.receiptName.Name = "receiptName";
-            this.receiptName.Size = new System.Drawing.Size(145, 20);
+            this.receiptName.Size = new System.Drawing.Size(129, 20);
             this.receiptName.TabIndex = 0;
             this.receiptName.Text = "Burger Town Inc.";
             // 
@@ -151,9 +157,10 @@
             // subtotal
             // 
             this.subtotal.AutoSize = true;
-            this.subtotal.Location = new System.Drawing.Point(20, 203);
+            this.subtotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.subtotal.Location = new System.Drawing.Point(25, 196);
             this.subtotal.Name = "subtotal";
-            this.subtotal.Size = new System.Drawing.Size(0, 13);
+            this.subtotal.Size = new System.Drawing.Size(0, 16);
             this.subtotal.TabIndex = 9;
             // 
             // burgerCounter
@@ -195,12 +202,62 @@
             this.print.UseVisualStyleBackColor = true;
             this.print.Click += new System.EventHandler(this.print_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(14, 311);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(77, 20);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Tendered";
+            // 
+            // tender
+            // 
+            this.tender.Location = new System.Drawing.Point(97, 313);
+            this.tender.Name = "tender";
+            this.tender.Size = new System.Drawing.Size(57, 20);
+            this.tender.TabIndex = 14;
+            // 
+            // changeButton
+            // 
+            this.changeButton.Location = new System.Drawing.Point(18, 339);
+            this.changeButton.Name = "changeButton";
+            this.changeButton.Size = new System.Drawing.Size(145, 22);
+            this.changeButton.TabIndex = 15;
+            this.changeButton.Text = "Calculate Total";
+            this.changeButton.UseVisualStyleBackColor = true;
+            this.changeButton.Click += new System.EventHandler(this.changeButton_Click);
+            // 
+            // change
+            // 
+            this.change.AutoSize = true;
+            this.change.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.change.Location = new System.Drawing.Point(24, 364);
+            this.change.Name = "change";
+            this.change.Size = new System.Drawing.Size(109, 20);
+            this.change.TabIndex = 16;
+            this.change.Text = "Change $0.00";
+            // 
+            // final
+            // 
+            this.final.AutoSize = true;
+            this.final.Location = new System.Drawing.Point(24, 93);
+            this.final.MinimumSize = new System.Drawing.Size(185, 183);
+            this.final.Name = "final";
+            this.final.Size = new System.Drawing.Size(185, 183);
+            this.final.TabIndex = 2;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(451, 429);
+            this.Controls.Add(this.change);
+            this.Controls.Add(this.changeButton);
+            this.Controls.Add(this.tender);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.print);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.fryCounter);
@@ -245,6 +302,11 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button print;
         private System.Windows.Forms.Label receipt;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox tender;
+        private System.Windows.Forms.Button changeButton;
+        private System.Windows.Forms.Label change;
+        private System.Windows.Forms.Label final;
     }
 }
 
