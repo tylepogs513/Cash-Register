@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.final = new System.Windows.Forms.Label();
             this.receipt = new System.Windows.Forms.Label();
             this.receiptName = new System.Windows.Forms.Label();
             this.order = new System.Windows.Forms.Button();
@@ -48,7 +50,8 @@
             this.tender = new System.Windows.Forms.TextBox();
             this.changeButton = new System.Windows.Forms.Button();
             this.change = new System.Windows.Forms.Label();
-            this.final = new System.Windows.Forms.Label();
+            this.checkLabel1 = new System.Windows.Forms.Label();
+            this.checkLabel2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -84,12 +87,23 @@
             this.panel2.Size = new System.Drawing.Size(235, 307);
             this.panel2.TabIndex = 1;
             // 
+            // final
+            // 
+            this.final.AutoSize = true;
+            this.final.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.final.Location = new System.Drawing.Point(43, 79);
+            this.final.MinimumSize = new System.Drawing.Size(185, 183);
+            this.final.Name = "final";
+            this.final.Size = new System.Drawing.Size(185, 183);
+            this.final.TabIndex = 2;
+            // 
             // receipt
             // 
             this.receipt.AutoSize = true;
-            this.receipt.Location = new System.Drawing.Point(24, 55);
+            this.receipt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.receipt.Location = new System.Drawing.Point(24, 45);
             this.receipt.Name = "receipt";
-            this.receipt.Size = new System.Drawing.Size(73, 13);
+            this.receipt.Size = new System.Drawing.Size(93, 16);
             this.receipt.TabIndex = 1;
             this.receipt.Text = "Order Number";
             // 
@@ -206,7 +220,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(14, 311);
+            this.label5.Location = new System.Drawing.Point(14, 303);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(77, 20);
             this.label5.TabIndex = 13;
@@ -214,14 +228,14 @@
             // 
             // tender
             // 
-            this.tender.Location = new System.Drawing.Point(97, 313);
+            this.tender.Location = new System.Drawing.Point(97, 305);
             this.tender.Name = "tender";
             this.tender.Size = new System.Drawing.Size(57, 20);
             this.tender.TabIndex = 14;
             // 
             // changeButton
             // 
-            this.changeButton.Location = new System.Drawing.Point(18, 339);
+            this.changeButton.Location = new System.Drawing.Point(18, 344);
             this.changeButton.Name = "changeButton";
             this.changeButton.Size = new System.Drawing.Size(145, 22);
             this.changeButton.TabIndex = 15;
@@ -233,20 +247,27 @@
             // 
             this.change.AutoSize = true;
             this.change.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.change.Location = new System.Drawing.Point(24, 364);
+            this.change.Location = new System.Drawing.Point(24, 369);
             this.change.Name = "change";
             this.change.Size = new System.Drawing.Size(109, 20);
             this.change.TabIndex = 16;
             this.change.Text = "Change $0.00";
             // 
-            // final
+            // checkLabel1
             // 
-            this.final.AutoSize = true;
-            this.final.Location = new System.Drawing.Point(24, 93);
-            this.final.MinimumSize = new System.Drawing.Size(185, 183);
-            this.final.Name = "final";
-            this.final.Size = new System.Drawing.Size(185, 183);
-            this.final.TabIndex = 2;
+            this.checkLabel1.AutoSize = true;
+            this.checkLabel1.Location = new System.Drawing.Point(9, 53);
+            this.checkLabel1.Name = "checkLabel1";
+            this.checkLabel1.Size = new System.Drawing.Size(0, 13);
+            this.checkLabel1.TabIndex = 17;
+            // 
+            // checkLabel2
+            // 
+            this.checkLabel2.AutoSize = true;
+            this.checkLabel2.Location = new System.Drawing.Point(15, 328);
+            this.checkLabel2.Name = "checkLabel2";
+            this.checkLabel2.Size = new System.Drawing.Size(0, 13);
+            this.checkLabel2.TabIndex = 18;
             // 
             // Form1
             // 
@@ -254,6 +275,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(451, 429);
+            this.Controls.Add(this.checkLabel2);
+            this.Controls.Add(this.checkLabel1);
             this.Controls.Add(this.change);
             this.Controls.Add(this.changeButton);
             this.Controls.Add(this.tender);
@@ -272,8 +295,9 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Burger Town";
             this.Load += new System.EventHandler(this.order_Click);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -307,6 +331,8 @@
         private System.Windows.Forms.Button changeButton;
         private System.Windows.Forms.Label change;
         private System.Windows.Forms.Label final;
+        private System.Windows.Forms.Label checkLabel1;
+        private System.Windows.Forms.Label checkLabel2;
     }
 }
 
