@@ -7,12 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
+using System.Threading;
 
 namespace Cash_Register
 {
-    public partial class Form1 : Form
+    public partial class burgerTown : Form
     {
-        public Form1()
+        SoundPlayer printPlayer = new SoundPlayer(Properties.Resources.print);
+        SoundPlayer changePlayer = new SoundPlayer(Properties.Resources.cashRegister);
+
+        public burgerTown()
         {
             InitializeComponent();
         }
@@ -109,23 +114,24 @@ namespace Cash_Register
             fryValue = fryCounter.Text;
             drinkValue = drinkCounter.Text;
 
-            double numOne, numTwo, numThree, numFour, numFive, numSix, numSeven, 
-                numEight, numNine, numThirteen, numFourteen;
-            numOne = 2.49;
-            numTwo = 1.89;
-            numThree = 0.99;
-            numFour = 0.13;
-            numFive = 1.13;
-            numSix = Convert.ToDouble(burgerCounter.Text);
-            numSeven = Convert.ToDouble(fryCounter.Text);
-            numEight = Convert.ToDouble(drinkCounter.Text);
-            numNine = (numOne * numSix) + (numTwo * numSeven) + (numThree * numEight);
-            numThirteen = numNine * numFour;
-            num1 = numThirteen.ToString("0.00");
-            numFourteen = numNine * numFive;
-            num2 = numFourteen.ToString("0.00");
+            double burgerPrice, fryPrice, drinkPrice, HST, HSTFull, burgerText, fryText, 
+                drinkText, subtotalText, taxText, HSTteen;
+            burgerPrice = 2.49;
+            fryPrice = 1.89;
+            drinkPrice = 0.99;
+            HST = 0.13;
+            HSTFull = 1.13;
+            burgerText = Convert.ToDouble(burgerCounter.Text);
+            fryText = Convert.ToDouble(fryCounter.Text);
+            drinkText = Convert.ToDouble(drinkCounter.Text);
+            subtotalText = (burgerPrice * burgerText) + (fryPrice * fryText) + (drinkPrice * drinkText);
+            taxText = subtotalText * HST;
+            num1 = taxText.ToString("0.00");
+            HSTteen = subtotalText * HSTFull;
+            num2 = HSTteen.ToString("0.00");
+            num = subtotalText.ToString("0.00");
 
-            subtotal.Text = "Subtotal          $" + numNine 
+            subtotal.Text = "Subtotal          $" + num 
                 + "\n\nTax                    $" + num1
                 + "\n\nTotal                 $" + num2;
         }
@@ -137,28 +143,30 @@ namespace Cash_Register
             fryValue = fryCounter.Text;
             drinkValue = drinkCounter.Text;
             int number;
-            double numOne, numTwo, numThree, numFour, numFive, numSix, numSeven,
-                numEight, numNine, numThirteen, numFourteen, numFifteen, numSixteen;
-            numOne = 2.49;
-            numTwo = 1.89;
-            numThree = 0.99;
-            numFour = 0.13;
-            numFive = 1.13;
-            numSix = Convert.ToDouble(burgerCounter.Text);
-            numSeven = Convert.ToDouble(fryCounter.Text);
-            numEight = Convert.ToDouble(drinkCounter.Text);
-            numNine = (numOne * numSix) + (numTwo * numSeven) + (numThree * numEight);
-            numThirteen = numNine * numFour;
-            num1 = numThirteen.ToString("0.00");
-            numFourteen = numNine * numFive;
-            num2 = numFourteen.ToString("0.00");
-            numFifteen = Convert.ToDouble(tender.Text);
-            numSixteen = numFifteen - numFourteen;
-            num3 = numSixteen.ToString("0.00");
+            double burgerPrice, fryPrice, drinkPrice, HST, HSTFull, burgerText, fryText,
+                drinkText, subtotalText, taxText, HSTteen, numFifteen, numSixteen;
+            burgerPrice = 2.49;
+            fryPrice = 1.89;
+            drinkPrice = 0.99;
+            HST = 0.13;
+            HSTFull = 1.13;
+            burgerText = Convert.ToDouble(burgerCounter.Text);
+            fryText = Convert.ToDouble(fryCounter.Text);
+            drinkText = Convert.ToDouble(drinkCounter.Text);
+            subtotalText = (burgerPrice * burgerText) + (fryPrice * fryText) + (drinkPrice * drinkText);
+            taxText = subtotalText * HST;
+            num1 = taxText.ToString("0.00");
+            HSTteen = subtotalText * HSTFull;
+            num2 = HSTteen.ToString("0.00");
+           // numFifteen = Convert.ToDouble(tender.Text);
+
 
             try // accept a value and display it to screen
             {
                 number = Convert.ToInt16(tender.Text);
+                numSixteen = number - HSTteen;
+                num3 = numSixteen.ToString("0.00");
+                changePlayer.Play();
                 checkLabel2.Text = "";
                 change.Text = "Change $" + num3;
             }
@@ -172,54 +180,83 @@ namespace Cash_Register
 
         private void print_Click(object sender, EventArgs e)
         {
-            string burgerValue, fryValue, drinkValue, num1, num2, num3, num4;
+            string burgerValue, fryValue, drinkValue, num, num1, num2, num3, num4;
             burgerValue = burgerCounter.Text;
             fryValue = fryCounter.Text;
             drinkValue = drinkCounter.Text;
 
-            double numOne, numTwo, numThree, numFour, numFive, numSix, numSeven, numEight,                 
-                numNine, numThirteen, numFourteen, numFifteen, numSixteen, numSeventeen;
-            numOne = 2.49;
-            numTwo = 1.89;
-            numThree = 0.99;
-            numFour = 0.13;
-            numFive = 1.13;
-            numSix = Convert.ToDouble(burgerCounter.Text);
-            numSeven = Convert.ToDouble(fryCounter.Text);
-            numEight = Convert.ToDouble(drinkCounter.Text);
-            numNine = (numOne * numSix) + (numTwo * numSeven) + (numThree * numEight);
-            numThirteen = numNine * numFour;
-            num1 = numThirteen.ToString("0.00");
-            numFourteen = numNine * numFive;
-            num2 = numFourteen.ToString("0.00");
+            double burgerPrice, fryPrice, drinkPrice, HST, HSTFull, burgerText, fryText, drinkText,                 
+                subtotalText, taxText, HSTteen, numFifteen, numSixteen, numSeventeen;
+            burgerPrice = 2.49;
+            fryPrice = 1.89;
+            drinkPrice = 0.99;
+            HST = 0.13;
+            HSTFull = 1.13;
+            burgerText = Convert.ToDouble(burgerCounter.Text);
+            fryText = Convert.ToDouble(fryCounter.Text);
+            drinkText = Convert.ToDouble(drinkCounter.Text);
+            subtotalText = (burgerPrice * burgerText) + (fryPrice * fryText) + (drinkPrice * drinkText);
+            taxText = subtotalText * HST;
+            num1 = taxText.ToString("0.00");
+            HSTteen = subtotalText * HSTFull;
+            num2 = HSTteen.ToString("0.00");
             numFifteen = Convert.ToDouble(tender.Text);
-            numSixteen = numFifteen - numFourteen;
+            numSixteen = numFifteen - HSTteen;
             num3 = numSixteen.ToString("0.00");
             num4 = numFifteen.ToString("0.00");
             numSeventeen = 1;
-            
+            num = subtotalText.ToString("0.00");
+
+            printPlayer.Play();
+            Thread.Sleep(5250);
+
             receiptName.Visible = true;
             receipt.Visible = true;
+
+            receiptName.Text = "Burger Town Inc.";
             receipt.Text = "Order Number " + numSeventeen;
 
-            final.Text = "October 12, 2018" +
-                "\n\nHamburgers   x" + numSix + "  @" + numOne +
-                "\nFries                 x" + numSeven + "   @" + numTwo +
-                "\nDrink                 x" + numEight + "   @" + numThree +
-                "\n\nSubtotal                    $" + numNine
+            
+
+            try // accept a value and display it to screen
+            {
+                number = Convert.ToInt16(tender.Text);
+                numSixteen = number - HSTteen;
+                num3 = numSixteen.ToString("0.00");
+                changePlayer.Play();
+                final.Text = "October 12, 2018" +
+                "\n\nHamburgers   x" + burgerText + "  @" + burgerPrice +
+                "\nFries                 x" + fryText + "   @" + fryPrice +
+                "\nDrink                 x" + drinkText + "   @" + drinkPrice +
+                "\n\nSubtotal                    $" + num
                 + "\nTax                             $" + num1
-                + "\nTotal                          $" + num2 
+                + "\nTotal                          $" + num2
                 + "\n\nTendered                 $" + num4
                 + "\nChange                     $" + num3
-                + "\n       Have A Nice Day!";
+                + "\n(*u*)Have A Nice Day!(*u*)";
+            }
+            catch // display error message if input is not a number
+            {
+                final.Text = "October 12, 2018" +
+                "\n\nHamburgers   x0" + "  @" + burgerPrice +
+                "\nFries                 x0" + "   @" + fryPrice +
+                "\nDrink                 x0" + "   @" + drinkPrice +
+                "\n\nSubtotal                    $0.00"
+                + "\nTax                             $0.00"
+                + "\nTotal                          $0.00"
+                + "\n\nTendered                 $0.00"
+                + "\nChange                     $0.00"
+                + "\n(*u*)Have A Nice Day!(*u*)";
+                return;
+            }
         }
 
         private void order_Click(object sender, EventArgs e)
         {
-            double numOne, numTwo, numThree;
-            numOne = 2.49;
-            numTwo = 1.89;
-            numThree = 0.99;
+            double burgerPrice, fryPrice, drinkPrice;
+            burgerPrice = 2.49;
+            fryPrice = 1.89;
+            drinkPrice = 0.99;
 
             subtotal.Text = "Subtotal           $0.00"
                 + "\n\nTax                      $0.00"
@@ -229,17 +266,9 @@ namespace Cash_Register
             drinkCounter.Text = "";
             tender.Text = "";
             change.Text = "Change $0.00";
-            receipt.Text = "Order Number 0";
-            final.Text = "October 11, 2018" +
-                "\n\nHamburgers   x0" + "  @" + numOne +
-                "\nFries                 x0" + "   @" + numTwo +
-                "\nDrink                 x0" + "   @" + numThree + 
-                "\n\nSubtotal                    $0.00"
-                + "\nTax                             $0.00"
-                + "\nTotal                          $0.00" +
-                "\n\nTendered                 $0.00" +
-                "\nChange                     $0.00" +
-                "\n       Have A Nice Day!";
+            receiptName.Text = "";
+            receipt.Text = "";
+            final.Text = "";
         }
     }
 }

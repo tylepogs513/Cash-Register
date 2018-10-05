@@ -1,6 +1,6 @@
 ﻿namespace Cash_Register
 {
-    partial class Form1
+    partial class burgerTown
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(burgerTown));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -103,9 +103,8 @@
             this.receipt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.receipt.Location = new System.Drawing.Point(24, 45);
             this.receipt.Name = "receipt";
-            this.receipt.Size = new System.Drawing.Size(93, 16);
+            this.receipt.Size = new System.Drawing.Size(0, 16);
             this.receipt.TabIndex = 1;
-            this.receipt.Text = "Order Number";
             // 
             // receiptName
             // 
@@ -113,9 +112,8 @@
             this.receiptName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.receiptName.Location = new System.Drawing.Point(44, 12);
             this.receiptName.Name = "receiptName";
-            this.receiptName.Size = new System.Drawing.Size(129, 20);
+            this.receiptName.Size = new System.Drawing.Size(0, 20);
             this.receiptName.TabIndex = 0;
-            this.receiptName.Text = "Burger Town Inc.";
             // 
             // order
             // 
@@ -239,7 +237,7 @@
             this.changeButton.Name = "changeButton";
             this.changeButton.Size = new System.Drawing.Size(145, 22);
             this.changeButton.TabIndex = 15;
-            this.changeButton.Text = "Calculate Total";
+            this.changeButton.Text = "Calculate Change";
             this.changeButton.UseVisualStyleBackColor = true;
             this.changeButton.Click += new System.EventHandler(this.changeButton_Click);
             // 
@@ -269,7 +267,7 @@
             this.checkLabel2.Size = new System.Drawing.Size(0, 13);
             this.checkLabel2.TabIndex = 18;
             // 
-            // Form1
+            // burgerTown
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -296,7 +294,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form1";
+            this.Name = "burgerTown";
             this.Text = "Burger Town";
             this.Load += new System.EventHandler(this.order_Click);
             this.panel1.ResumeLayout(false);
