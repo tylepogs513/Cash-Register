@@ -52,8 +52,13 @@
             this.change = new System.Windows.Forms.Label();
             this.checkLabel1 = new System.Windows.Forms.Label();
             this.checkLabel2 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -79,6 +84,7 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.final);
             this.panel2.Controls.Add(this.receipt);
             this.panel2.Controls.Add(this.receiptName);
@@ -91,7 +97,7 @@
             // 
             this.final.AutoSize = true;
             this.final.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.final.Location = new System.Drawing.Point(43, 79);
+            this.final.Location = new System.Drawing.Point(34, 73);
             this.final.MinimumSize = new System.Drawing.Size(185, 183);
             this.final.Name = "final";
             this.final.Size = new System.Drawing.Size(185, 183);
@@ -101,7 +107,7 @@
             // 
             this.receipt.AutoSize = true;
             this.receipt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.receipt.Location = new System.Drawing.Point(24, 45);
+            this.receipt.Location = new System.Drawing.Point(44, 42);
             this.receipt.Name = "receipt";
             this.receipt.Size = new System.Drawing.Size(0, 16);
             this.receipt.TabIndex = 1;
@@ -267,6 +273,44 @@
             this.checkLabel2.Size = new System.Drawing.Size(0, 13);
             this.checkLabel2.TabIndex = 18;
             // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.label6);
+            this.panel4.Controls.Add(this.label7);
+            this.panel4.Controls.Add(this.label8);
+            this.panel4.Location = new System.Drawing.Point(-2, 35);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(235, 307);
+            this.panel4.TabIndex = 3;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(34, 73);
+            this.label6.MinimumSize = new System.Drawing.Size(185, 183);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(185, 183);
+            this.label6.TabIndex = 2;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(44, 42);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(0, 16);
+            this.label7.TabIndex = 1;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(44, 12);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(0, 20);
+            this.label8.TabIndex = 0;
+            // 
             // burgerTown
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -295,12 +339,15 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "burgerTown";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Burger Town";
             this.Load += new System.EventHandler(this.order_Click);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -331,6 +378,10 @@
         private System.Windows.Forms.Label final;
         private System.Windows.Forms.Label checkLabel1;
         private System.Windows.Forms.Label checkLabel2;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
     }
 }
 

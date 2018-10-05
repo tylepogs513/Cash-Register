@@ -86,5 +86,29 @@
   <ItemGroup>
     <None Include="Resources\cash-register.wav" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Error.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ding.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\doorbell.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kaboom.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Buzzer.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Beep.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\errorsound.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\receipt.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

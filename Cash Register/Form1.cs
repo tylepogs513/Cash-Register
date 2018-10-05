@@ -14,9 +14,10 @@ namespace Cash_Register
 {
     public partial class burgerTown : Form
     {
-        SoundPlayer printPlayer = new SoundPlayer(Properties.Resources.print);
+        SoundPlayer printPlayer = new SoundPlayer(Properties.Resources.receipt);
         SoundPlayer changePlayer = new SoundPlayer(Properties.Resources.cashRegister);
-
+        SoundPlayer errorPlayer = new SoundPlayer(Properties.Resources.errorsound);
+        
         public burgerTown()
         {
             InitializeComponent();
@@ -39,6 +40,7 @@ namespace Cash_Register
             }
             catch // display error message if input is not a number
             {
+                errorPlayer.Play();
                 checkLabel1.Text = "Check the amounts.";
                 return;
             }
@@ -50,6 +52,7 @@ namespace Cash_Register
             }
             catch // display error message if input is not a number
             {
+                errorPlayer.Play();
                 checkLabel1.Text = "Check the amounts.";
                 return;
             }
@@ -61,6 +64,7 @@ namespace Cash_Register
             }
             catch // display error message if input is not a number
             {
+                errorPlayer.Play();
                 checkLabel1.Text = "Check the amounts.";
                 return;
             }
@@ -72,6 +76,7 @@ namespace Cash_Register
             }
             catch // display error message if input is not a number
             {
+                errorPlayer.Play();
                 checkLabel1.Text = "Check the amounts.";
                 return;
             }
@@ -83,6 +88,7 @@ namespace Cash_Register
             }
             catch // display error message if input is not a number
             {
+                errorPlayer.Play();
                 checkLabel1.Text = "Check the amounts.";
                 return;
             }
@@ -94,6 +100,7 @@ namespace Cash_Register
             }
             catch // display error message if input is not a number
             {
+                errorPlayer.Play();
                 checkLabel1.Text = "Check the amounts.";
                 return;
             }
@@ -105,6 +112,7 @@ namespace Cash_Register
             }
             catch // display error message if input is not a number
             {
+                errorPlayer.Play();
                 checkLabel1.Text = "Check the amounts.";
                 return;
             }
@@ -144,25 +152,23 @@ namespace Cash_Register
             drinkValue = drinkCounter.Text;
             int number;
             double burgerPrice, fryPrice, drinkPrice, HST, HSTFull, burgerText, fryText,
-                drinkText, subtotalText, taxText, HSTteen, numFifteen, numSixteen;
+                drinkText, subtotalText, taxText, HSTteen, numSixteen;
             burgerPrice = 2.49;
             fryPrice = 1.89;
             drinkPrice = 0.99;
             HST = 0.13;
             HSTFull = 1.13;
-            burgerText = Convert.ToDouble(burgerCounter.Text);
-            fryText = Convert.ToDouble(fryCounter.Text);
-            drinkText = Convert.ToDouble(drinkCounter.Text);
-            subtotalText = (burgerPrice * burgerText) + (fryPrice * fryText) + (drinkPrice * drinkText);
-            taxText = subtotalText * HST;
-            num1 = taxText.ToString("0.00");
-            HSTteen = subtotalText * HSTFull;
-            num2 = HSTteen.ToString("0.00");
-           // numFifteen = Convert.ToDouble(tender.Text);
-
-
+            
             try // accept a value and display it to screen
             {
+                burgerText = Convert.ToDouble(burgerCounter.Text);
+                fryText = Convert.ToDouble(fryCounter.Text);
+                drinkText = Convert.ToDouble(drinkCounter.Text);
+                subtotalText = (burgerPrice * burgerText) + (fryPrice * fryText) + (drinkPrice * drinkText);
+                taxText = subtotalText * HST;
+                num1 = taxText.ToString("0.00");
+                HSTteen = subtotalText * HSTFull;
+                num2 = HSTteen.ToString("0.00");
                 number = Convert.ToInt16(tender.Text);
                 numSixteen = number - HSTteen;
                 num3 = numSixteen.ToString("0.00");
@@ -172,7 +178,8 @@ namespace Cash_Register
             }
             catch // display error message if input is not a number
             {
-                checkLabel2.Text = "Check the amount tendered.";
+                errorPlayer.Play();
+                checkLabel2.Text = "Check the amounts.";
                 change.Text = "Change $0.00";
                 return;
             }
@@ -180,6 +187,9 @@ namespace Cash_Register
 
         private void print_Click(object sender, EventArgs e)
         {
+            Graphics g = this.CreateGraphics();
+
+
             string burgerValue, fryValue, drinkValue, num, num1, num2, num3, num4;
             burgerValue = burgerCounter.Text;
             fryValue = fryCounter.Text;
@@ -191,39 +201,29 @@ namespace Cash_Register
             fryPrice = 1.89;
             drinkPrice = 0.99;
             HST = 0.13;
-            HSTFull = 1.13;
-            burgerText = Convert.ToDouble(burgerCounter.Text);
-            fryText = Convert.ToDouble(fryCounter.Text);
-            drinkText = Convert.ToDouble(drinkCounter.Text);
-            subtotalText = (burgerPrice * burgerText) + (fryPrice * fryText) + (drinkPrice * drinkText);
-            taxText = subtotalText * HST;
-            num1 = taxText.ToString("0.00");
-            HSTteen = subtotalText * HSTFull;
-            num2 = HSTteen.ToString("0.00");
-            numFifteen = Convert.ToDouble(tender.Text);
-            numSixteen = numFifteen - HSTteen;
-            num3 = numSixteen.ToString("0.00");
-            num4 = numFifteen.ToString("0.00");
-            numSeventeen = 1;
-            num = subtotalText.ToString("0.00");
-
-            printPlayer.Play();
-            Thread.Sleep(5250);
-
-            receiptName.Visible = true;
-            receipt.Visible = true;
-
-            receiptName.Text = "Burger Town Inc.";
-            receipt.Text = "Order Number " + numSeventeen;
-
-            
+            HSTFull = 1.13;   
 
             try // accept a value and display it to screen
             {
-                number = Convert.ToInt16(tender.Text);
-                numSixteen = number - HSTteen;
+                burgerText = Convert.ToDouble(burgerCounter.Text);
+                fryText = Convert.ToDouble(fryCounter.Text);
+                drinkText = Convert.ToDouble(drinkCounter.Text);
+                subtotalText = (burgerPrice * burgerText) + (fryPrice * fryText) + (drinkPrice * drinkText);
+                taxText = subtotalText * HST;
+                num1 = taxText.ToString("0.00");
+                HSTteen = subtotalText * HSTFull;
+                num2 = HSTteen.ToString("0.00");
+                numFifteen = Convert.ToDouble(tender.Text);
+                numSixteen = numFifteen - HSTteen;
                 num3 = numSixteen.ToString("0.00");
-                changePlayer.Play();
+                num4 = numFifteen.ToString("0.00");
+                numSeventeen = 1;
+                num = subtotalText.ToString("0.00");
+
+                printPlayer.Play();
+                
+                receiptName.Text = "Burger Town Inc.";
+                receipt.Text = "Order Number " + numSeventeen;
                 final.Text = "October 12, 2018" +
                 "\n\nHamburgers   x" + burgerText + "  @" + burgerPrice +
                 "\nFries                 x" + fryText + "   @" + fryPrice +
@@ -233,31 +233,30 @@ namespace Cash_Register
                 + "\nTotal                          $" + num2
                 + "\n\nTendered                 $" + num4
                 + "\nChange                     $" + num3
-                + "\n(*u*)Have A Nice Day!(*u*)";
+                + "\n   Have A Nice Day!";
             }
             catch // display error message if input is not a number
             {
+                errorPlayer.Play();
+
+                receiptName.Text = "Burger Town Inc.";
+                receipt.Text = "Order Number 0";
                 final.Text = "October 12, 2018" +
-                "\n\nHamburgers   x0" + "  @" + burgerPrice +
-                "\nFries                 x0" + "   @" + fryPrice +
-                "\nDrink                 x0" + "   @" + drinkPrice +
+                "\n\nHamburgers  x0" + "   @    $" + burgerPrice +
+                "\nFries                 x0" + "   @    $" + fryPrice +
+                "\nDrink                 x0" + "   @    $" + drinkPrice +
                 "\n\nSubtotal                    $0.00"
                 + "\nTax                             $0.00"
                 + "\nTotal                          $0.00"
                 + "\n\nTendered                 $0.00"
                 + "\nChange                     $0.00"
-                + "\n(*u*)Have A Nice Day!(*u*)";
+                + "\n                 Nice Try!";
                 return;
             }
         }
 
         private void order_Click(object sender, EventArgs e)
         {
-            double burgerPrice, fryPrice, drinkPrice;
-            burgerPrice = 2.49;
-            fryPrice = 1.89;
-            drinkPrice = 0.99;
-
             subtotal.Text = "Subtotal           $0.00"
                 + "\n\nTax                      $0.00"
                 + "\n\nTotal                    $0.00";
