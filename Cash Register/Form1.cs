@@ -188,7 +188,8 @@ namespace Cash_Register
         private void print_Click(object sender, EventArgs e)
         {
             Graphics g = this.CreateGraphics();
-
+            Font font = new Font("Microsoft Sans Serif", 10);
+            SolidBrush black = new SolidBrush(Color.Black);
 
             string burgerValue, fryValue, drinkValue, num, num1, num2, num3, num4;
             burgerValue = burgerCounter.Text;
@@ -221,9 +222,11 @@ namespace Cash_Register
                 num = subtotalText.ToString("0.00");
 
                 printPlayer.Play();
-                
-                receiptName.Text = "Burger Town Inc.";
-                receipt.Text = "Order Number " + numSeventeen;
+
+                g.DrawString("Burger Town Inc.", font, black, 334, 73);
+                Thread.Sleep(750);
+                g.DrawString("Order Number", font, black, 334, 95);
+                Thread.Sleep(750);
                 final.Text = "October 12, 2018" +
                 "\n\nHamburgers   x" + burgerText + "  @" + burgerPrice +
                 "\nFries                 x" + fryText + "   @" + fryPrice +
@@ -257,6 +260,8 @@ namespace Cash_Register
 
         private void order_Click(object sender, EventArgs e)
         {
+            Graphics g = this.CreateGraphics();
+            g.Clear(Color.White);
             subtotal.Text = "Subtotal           $0.00"
                 + "\n\nTax                      $0.00"
                 + "\n\nTotal                    $0.00";
