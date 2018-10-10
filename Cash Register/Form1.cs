@@ -17,16 +17,23 @@ namespace Cash_Register
         SoundPlayer printPlayer = new SoundPlayer(Properties.Resources.receipt);
         SoundPlayer changePlayer = new SoundPlayer(Properties.Resources.cashRegister);
         SoundPlayer errorPlayer = new SoundPlayer(Properties.Resources.errorsound);
-        
+        SoundPlayer receiptPlayer = new SoundPlayer(Properties.Resources.rip_paper);
+
         public burgerTown()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void burgerTown_Load(object sender, EventArgs e)
         {
-            receiptName.Visible = false;
-            receipt.Visible = false;
+            subtotal.Text = "Subtotal              $0.00"
+                + "\n\nTax                      $0.00"
+                + "\n\nTotal                    $0.00";
+            burgerCounter.Text = "";
+            fryCounter.Text = "";
+            drinkCounter.Text = "";
+            tender.Text = "";
+            change.Text = "Change $0.00";
         }
 
         private void calculateButton_Click(object sender, EventArgs e)
@@ -116,13 +123,13 @@ namespace Cash_Register
                 checkLabel1.Text = "Check the amounts.";
                 return;
             }
-            
+
             string burgerValue, fryValue, drinkValue, num, num1, num2;
             burgerValue = burgerCounter.Text;
             fryValue = fryCounter.Text;
             drinkValue = drinkCounter.Text;
 
-            double burgerPrice, fryPrice, drinkPrice, HST, HSTFull, burgerText, fryText, 
+            double burgerPrice, fryPrice, drinkPrice, HST, HSTFull, burgerText, fryText,
                 drinkText, subtotalText, taxText, HSTteen;
             burgerPrice = 2.49;
             fryPrice = 1.89;
@@ -139,9 +146,9 @@ namespace Cash_Register
             num2 = HSTteen.ToString("0.00");
             num = subtotalText.ToString("0.00");
 
-            subtotal.Text = "Subtotal          $" + num 
-                + "\n\nTax                    $" + num1
-                + "\n\nTotal                 $" + num2;
+            subtotal.Text = "Subtotal              $" + num
+                + "\n\nTax                      $" + num1
+                + "\n\nTotal                    $" + num2;
         }
 
         private void changeButton_Click(object sender, EventArgs e)
@@ -158,7 +165,7 @@ namespace Cash_Register
             drinkPrice = 0.99;
             HST = 0.13;
             HSTFull = 1.13;
-            
+
             try // accept a value and display it to screen
             {
                 burgerText = Convert.ToDouble(burgerCounter.Text);
@@ -188,21 +195,24 @@ namespace Cash_Register
         private void print_Click(object sender, EventArgs e)
         {
             Graphics g = this.CreateGraphics();
-            Font font = new Font("Microsoft Sans Serif", 10);
-            SolidBrush black = new SolidBrush(Color.Black);
+            Font titleFont = new Font("Microsoft Sans Serif", 15);
+            Font textFont = new Font("Microsoft Sans Serif", 10);
+            SolidBrush blackBrush = new SolidBrush(Color.Black);
+            SolidBrush whiteBrush = new SolidBrush(Color.White);
+            Pen blackPen = new Pen(Color.Black, 5);
 
             string burgerValue, fryValue, drinkValue, num, num1, num2, num3, num4;
             burgerValue = burgerCounter.Text;
             fryValue = fryCounter.Text;
             drinkValue = drinkCounter.Text;
 
-            double burgerPrice, fryPrice, drinkPrice, HST, HSTFull, burgerText, fryText, drinkText,                 
+            double burgerPrice, fryPrice, drinkPrice, HST, HSTFull, burgerText, fryText, drinkText,
                 subtotalText, taxText, HSTteen, numFifteen, numSixteen, numSeventeen;
             burgerPrice = 2.49;
             fryPrice = 1.89;
             drinkPrice = 0.99;
             HST = 0.13;
-            HSTFull = 1.13;   
+            HSTFull = 1.13;
 
             try // accept a value and display it to screen
             {
@@ -223,37 +233,38 @@ namespace Cash_Register
 
                 printPlayer.Play();
 
-                g.DrawString("Burger Town Inc.", font, black, 334, 73);
-                Thread.Sleep(750);
-                g.DrawString("Order Number", font, black, 334, 95);
-                Thread.Sleep(750);
-                final.Text = "October 12, 2018" +
-                "\n\nHamburgers   x" + burgerText + "  @" + burgerPrice +
-                "\nFries                 x" + fryText + "   @" + fryPrice +
-                "\nDrink                 x" + drinkText + "   @" + drinkPrice +
-                "\n\nSubtotal                    $" + num
-                + "\nTax                             $" + num1
-                + "\nTotal                          $" + num2
-                + "\n\nTendered                 $" + num4
-                + "\nChange                     $" + num3
-                + "\n   Have A Nice Day!";
+                g.FillRectangle(whiteBrush, 206, 67, 235, 307);
+                g.DrawRectangle(blackPen, 206, 67, 235, 307);
+
+                g.DrawString("Burger Town Inc.", titleFont, blackBrush, 243, 90);
+                Thread.Sleep(1000);
+                g.DrawString("Order Number 1", textFont, blackBrush, 270, 117);
+                Thread.Sleep(1000);
+                g.DrawString("October 15, 2018", textFont, blackBrush, 270, 135);
+                Thread.Sleep(1000);
+                g.DrawString("Hamburgers        x" + burgerText + "  @" + burgerPrice, textFont, blackBrush, 250, 159);
+                Thread.Sleep(1000);
+                g.DrawString("Fries                    x" + fryText + "  @" + fryPrice, textFont, blackBrush, 250, 176);
+                Thread.Sleep(900);
+                g.DrawString("Drink                    x" + drinkText + "  @" + drinkPrice, textFont, blackBrush, 250, 192);
+                Thread.Sleep(900);
+                g.DrawString("Subtotal                     $" + num, textFont, blackBrush, 250, 216);
+                Thread.Sleep(1000);
+                g.DrawString("Tax                            $" + num1, textFont, blackBrush, 250, 233);
+                Thread.Sleep(1000);
+                g.DrawString("Total                          $" + num2, textFont, blackBrush, 250, 250);
+                Thread.Sleep(1000);
+                g.DrawString("Tendered                  $" + num4, textFont, blackBrush, 250, 274);
+                Thread.Sleep(1000);
+                g.DrawString("Change                       $" + num3, textFont, blackBrush, 250, 291);
+                Thread.Sleep(1000);
+                g.DrawString("Have A Nice Day!!", textFont, blackBrush, 270, 315);
+                Thread.Sleep(1000);
             }
+
             catch // display error message if input is not a number
             {
                 errorPlayer.Play();
-
-                receiptName.Text = "Burger Town Inc.";
-                receipt.Text = "Order Number 0";
-                final.Text = "October 12, 2018" +
-                "\n\nHamburgers  x0" + "   @    $" + burgerPrice +
-                "\nFries                 x0" + "   @    $" + fryPrice +
-                "\nDrink                 x0" + "   @    $" + drinkPrice +
-                "\n\nSubtotal                    $0.00"
-                + "\nTax                             $0.00"
-                + "\nTotal                          $0.00"
-                + "\n\nTendered                 $0.00"
-                + "\nChange                     $0.00"
-                + "\n                 Nice Try!";
                 return;
             }
         }
@@ -261,8 +272,9 @@ namespace Cash_Register
         private void order_Click(object sender, EventArgs e)
         {
             Graphics g = this.CreateGraphics();
+            receiptPlayer.Play();
             g.Clear(Color.White);
-            subtotal.Text = "Subtotal           $0.00"
+            subtotal.Text = "Subtotal              $0.00"
                 + "\n\nTax                      $0.00"
                 + "\n\nTotal                    $0.00";
             burgerCounter.Text = "";
@@ -270,9 +282,6 @@ namespace Cash_Register
             drinkCounter.Text = "";
             tender.Text = "";
             change.Text = "Change $0.00";
-            receiptName.Text = "";
-            receipt.Text = "";
-            final.Text = "";
         }
     }
 }
