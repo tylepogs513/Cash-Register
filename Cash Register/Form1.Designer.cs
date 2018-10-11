@@ -48,6 +48,7 @@
             this.change = new System.Windows.Forms.Label();
             this.checkLabel1 = new System.Windows.Forms.Label();
             this.checkLabel2 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -126,7 +127,7 @@
             // 
             this.subtotal.AutoSize = true;
             this.subtotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.subtotal.Location = new System.Drawing.Point(25, 196);
+            this.subtotal.Location = new System.Drawing.Point(25, 187);
             this.subtotal.Name = "subtotal";
             this.subtotal.Size = new System.Drawing.Size(0, 16);
             this.subtotal.TabIndex = 9;
@@ -155,14 +156,14 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Black;
-            this.panel3.Location = new System.Drawing.Point(18, 283);
+            this.panel3.Location = new System.Drawing.Point(12, 269);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(146, 16);
+            this.panel3.Size = new System.Drawing.Size(160, 16);
             this.panel3.TabIndex = 2;
             // 
             // print
             // 
-            this.print.Location = new System.Drawing.Point(18, 392);
+            this.print.Location = new System.Drawing.Point(18, 395);
             this.print.Name = "print";
             this.print.Size = new System.Drawing.Size(145, 22);
             this.print.TabIndex = 12;
@@ -174,7 +175,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(14, 303);
+            this.label5.Location = new System.Drawing.Point(14, 289);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(77, 20);
             this.label5.TabIndex = 13;
@@ -182,14 +183,14 @@
             // 
             // tender
             // 
-            this.tender.Location = new System.Drawing.Point(97, 305);
+            this.tender.Location = new System.Drawing.Point(97, 291);
             this.tender.Name = "tender";
             this.tender.Size = new System.Drawing.Size(57, 20);
             this.tender.TabIndex = 14;
             // 
             // changeButton
             // 
-            this.changeButton.Location = new System.Drawing.Point(18, 344);
+            this.changeButton.Location = new System.Drawing.Point(18, 347);
             this.changeButton.Name = "changeButton";
             this.changeButton.Size = new System.Drawing.Size(145, 22);
             this.changeButton.TabIndex = 15;
@@ -201,7 +202,7 @@
             // 
             this.change.AutoSize = true;
             this.change.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.change.Location = new System.Drawing.Point(24, 369);
+            this.change.Location = new System.Drawing.Point(24, 372);
             this.change.Name = "change";
             this.change.Size = new System.Drawing.Size(109, 20);
             this.change.TabIndex = 16;
@@ -218,10 +219,18 @@
             // checkLabel2
             // 
             this.checkLabel2.AutoSize = true;
-            this.checkLabel2.Location = new System.Drawing.Point(15, 328);
+            this.checkLabel2.Location = new System.Drawing.Point(12, 314);
             this.checkLabel2.Name = "checkLabel2";
             this.checkLabel2.Size = new System.Drawing.Size(0, 13);
             this.checkLabel2.TabIndex = 18;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Black;
+            this.panel2.Location = new System.Drawing.Point(169, 53);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(16, 375);
+            this.panel2.TabIndex = 3;
             // 
             // burgerTown
             // 
@@ -229,6 +238,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(451, 429);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.checkLabel2);
             this.Controls.Add(this.checkLabel1);
             this.Controls.Add(this.change);
@@ -281,6 +291,7 @@
         private System.Windows.Forms.Label change;
         private System.Windows.Forms.Label checkLabel1;
         private System.Windows.Forms.Label checkLabel2;
+        private System.Windows.Forms.Panel panel2;
     }
 }
 

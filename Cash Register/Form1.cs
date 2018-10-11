@@ -48,7 +48,7 @@ namespace Cash_Register
             catch // display error message if input is not a number
             {
                 errorPlayer.Play();
-                checkLabel1.Text = "Check the amounts.";
+                checkLabel1.Text = "Check the amounts. Make\nsure it's not too much!";
                 return;
             }
 
@@ -60,7 +60,7 @@ namespace Cash_Register
             catch // display error message if input is not a number
             {
                 errorPlayer.Play();
-                checkLabel1.Text = "Check the amounts.";
+                checkLabel1.Text = "Check the amounts. Make\nsure it's not too much!";
                 return;
             }
 
@@ -72,7 +72,7 @@ namespace Cash_Register
             catch // display error message if input is not a number
             {
                 errorPlayer.Play();
-                checkLabel1.Text = "Check the amounts.";
+                checkLabel1.Text = "Check the amounts. Make\nsure it's not too much!";
                 return;
             }
 
@@ -84,7 +84,7 @@ namespace Cash_Register
             catch // display error message if input is not a number
             {
                 errorPlayer.Play();
-                checkLabel1.Text = "Check the amounts.";
+                checkLabel1.Text = "Check the amounts. Make\nsure it's not too much!";
                 return;
             }
 
@@ -96,7 +96,7 @@ namespace Cash_Register
             catch // display error message if input is not a number
             {
                 errorPlayer.Play();
-                checkLabel1.Text = "Check the amounts.";
+                checkLabel1.Text = "Check the amounts. Make\nsure it's not too much!";
                 return;
             }
 
@@ -108,7 +108,7 @@ namespace Cash_Register
             catch // display error message if input is not a number
             {
                 errorPlayer.Play();
-                checkLabel1.Text = "Check the amounts.";
+                checkLabel1.Text = "Check the amounts. Make\nsure it's not too much!";
                 return;
             }
 
@@ -120,7 +120,7 @@ namespace Cash_Register
             catch // display error message if input is not a number
             {
                 errorPlayer.Play();
-                checkLabel1.Text = "Check the amounts.";
+                checkLabel1.Text = "Check the amounts. Make\nsure it's not too much!";
                 return;
             }
 
@@ -186,7 +186,7 @@ namespace Cash_Register
             catch // display error message if input is not a number
             {
                 errorPlayer.Play();
-                checkLabel2.Text = "Check the amounts.";
+                checkLabel2.Text = "Check the amounts. Make\nsure it's enough!";
                 change.Text = "Change $0.00";
                 return;
             }
@@ -199,7 +199,7 @@ namespace Cash_Register
             Font textFont = new Font("Microsoft Sans Serif", 10);
             SolidBrush blackBrush = new SolidBrush(Color.Black);
             SolidBrush whiteBrush = new SolidBrush(Color.White);
-            Pen blackPen = new Pen(Color.Black, 5);
+            Pen blackPen = new Pen(Color.Black, 2);
 
             string burgerValue, fryValue, drinkValue, num, num1, num2, num3, num4;
             burgerValue = burgerCounter.Text;
@@ -249,17 +249,16 @@ namespace Cash_Register
                 g.DrawString("Drink                    x" + drinkText + "  @" + drinkPrice, textFont, blackBrush, 250, 192);
                 Thread.Sleep(900);
                 g.DrawString("Subtotal                     $" + num, textFont, blackBrush, 250, 216);
-                Thread.Sleep(1000);
+                Thread.Sleep(600);
                 g.DrawString("Tax                            $" + num1, textFont, blackBrush, 250, 233);
-                Thread.Sleep(1000);
+                Thread.Sleep(750);
                 g.DrawString("Total                          $" + num2, textFont, blackBrush, 250, 250);
-                Thread.Sleep(1000);
+                Thread.Sleep(750);
                 g.DrawString("Tendered                  $" + num4, textFont, blackBrush, 250, 274);
-                Thread.Sleep(1000);
+                Thread.Sleep(750);
                 g.DrawString("Change                       $" + num3, textFont, blackBrush, 250, 291);
                 Thread.Sleep(1000);
                 g.DrawString("Have A Nice Day!!", textFont, blackBrush, 270, 315);
-                Thread.Sleep(1000);
             }
 
             catch // display error message if input is not a number
