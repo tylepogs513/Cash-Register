@@ -136,21 +136,21 @@
             // 
             this.burgerCounter.Location = new System.Drawing.Point(126, 83);
             this.burgerCounter.Name = "burgerCounter";
-            this.burgerCounter.Size = new System.Drawing.Size(38, 20);
+            this.burgerCounter.Size = new System.Drawing.Size(38, 21);
             this.burgerCounter.TabIndex = 1;
             // 
             // drinkCounter
             // 
             this.drinkCounter.Location = new System.Drawing.Point(126, 136);
             this.drinkCounter.Name = "drinkCounter";
-            this.drinkCounter.Size = new System.Drawing.Size(38, 20);
+            this.drinkCounter.Size = new System.Drawing.Size(38, 21);
             this.drinkCounter.TabIndex = 10;
             // 
             // fryCounter
             // 
             this.fryCounter.Location = new System.Drawing.Point(126, 110);
             this.fryCounter.Name = "fryCounter";
-            this.fryCounter.Size = new System.Drawing.Size(38, 20);
+            this.fryCounter.Size = new System.Drawing.Size(38, 21);
             this.fryCounter.TabIndex = 11;
             // 
             // panel3
@@ -185,7 +185,7 @@
             // 
             this.tender.Location = new System.Drawing.Point(97, 291);
             this.tender.Name = "tender";
-            this.tender.Size = new System.Drawing.Size(57, 20);
+            this.tender.Size = new System.Drawing.Size(57, 21);
             this.tender.TabIndex = 14;
             // 
             // changeButton
@@ -257,6 +257,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.order);
             this.Controls.Add(this.panel1);
+            this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "burgerTown";
