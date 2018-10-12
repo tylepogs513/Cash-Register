@@ -242,11 +242,11 @@ namespace Cash_Register
                 Thread.Sleep(1000);
                 g.DrawString("October 15, 2018", textFont, blackBrush, 270, 135);
                 Thread.Sleep(1000);
-                g.DrawString("Hamburgers        x" + burgerText + "  @" + burgerPrice, textFont, blackBrush, 250, 159);
+                g.DrawString("Hamburgers        x" + burgerText + "  @ $" + burgerPrice, textFont, blackBrush, 250, 159);
                 Thread.Sleep(1000);
-                g.DrawString("Fries                    x" + fryText + "  @" + fryPrice, textFont, blackBrush, 250, 176);
+                g.DrawString("Fries                    x" + fryText + "  @ $" + fryPrice, textFont, blackBrush, 250, 176);
                 Thread.Sleep(900);
-                g.DrawString("Drink                    x" + drinkText + "  @" + drinkPrice, textFont, blackBrush, 250, 192);
+                g.DrawString("Drink                    x" + drinkText + "  @ $" + drinkPrice, textFont, blackBrush, 250, 192);
                 Thread.Sleep(900);
                 g.DrawString("Subtotal                     $" + num, textFont, blackBrush, 250, 216);
                 Thread.Sleep(600);
