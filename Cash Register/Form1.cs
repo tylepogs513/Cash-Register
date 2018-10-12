@@ -151,7 +151,7 @@ namespace Cash_Register
                 + "\n\nTotal                    $" + num2;
         }
 
-        private void changeButton_Click(object sender, EventArgs e)
+        private void changeButton_Click(object sender, EventArgs e) 
         {
             string burgerValue, fryValue, drinkValue, num1, num2, num3;
             burgerValue = burgerCounter.Text;
